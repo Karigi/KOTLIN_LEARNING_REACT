@@ -1,0 +1,200 @@
+.roadmap-grid,
+.compare-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.roadmap-step,
+.compare-card {
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 16px;
+  background: linear-gradient(180deg, rgba(34, 21, 64, .97), rgba(15, 10, 29, .95));
+  box-shadow: var(--shadow);
+}
+
+.roadmap-step {
+  position: relative;
+  overflow: hidden;
+}
+
+.roadmap-step::after,
+.compare-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(255,255,255,.035), transparent 24%);
+}
+
+.roadmap-step {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  align-items: start;
+}
+
+.roadmap-number {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid rgba(114, 208, 255, .25);
+  background: rgba(114, 208, 255, .12);
+  color: var(--accent);
+  font-weight: 800;
+}
+
+.compare-card h3,
+.roadmap-step h3 {
+  margin-top: 0;
+}
+
+.compare-card.do {
+  border-color: rgba(34, 211, 238, .22);
+  background: linear-gradient(180deg, rgba(17, 49, 62, .90), rgba(11, 25, 34, .90));
+}
+
+.compare-card.dont {
+  border-color: rgba(255, 122, 162, .24);
+  background: linear-gradient(180deg, rgba(64, 26, 42, .92), rgba(33, 14, 22, .90));
+}
+
+.lesson-checklist {
+  margin: 0;
+  padding-left: 1.15rem;
+}
+
+.lesson-checklist li + li {
+  margin-top: .45rem;
+}
+
+.lesson-checklist.compact {
+  font-size: .94rem;
+}
+
+.code-card {
+  box-shadow: var(--shadow);
+  background:
+    radial-gradient(circle at top right, rgba(34, 211, 238, .06), transparent 28%),
+    radial-gradient(circle at 0% 0%, rgba(139, 92, 246, .08), transparent 24%),
+    linear-gradient(180deg, rgba(26, 17, 49, .90), rgba(15, 10, 29, .86));
+  border-radius: 24px;
+}
+
+html[data-theme="light"] .roadmap-step,
+html[data-theme="light"] .compare-card,
+html[data-theme="light"] .code-card {
+  background: linear-gradient(180deg, rgba(255,255,255,.98), rgba(249,243,255,.95));
+  border-color: rgba(109, 73, 248, .12);
+}
+
+html[data-theme="light"] .compare-card.do {
+  background: linear-gradient(180deg, rgba(236,252,255,.98), rgba(226,247,252,.95));
+}
+
+html[data-theme="light"] .compare-card.dont {
+  background: linear-gradient(180deg, rgba(255,240,245,.98), rgba(255,231,239,.95));
+}
+
+.code-head {
+  padding-bottom: 10px;
+  border-bottom: 1px dashed rgba(139, 92, 246, .18);
+}
+
+.code-head > * {
+  min-width: 0;
+}
+
+pre {
+  background:
+    linear-gradient(180deg, rgba(11, 7, 21, .995), rgba(16, 10, 29, .97));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .04);
+  border-color: rgba(139, 92, 246, .16);
+}
+
+html[data-theme="light"] pre {
+  background: linear-gradient(180deg, rgba(255,250,255,.995), rgba(245,240,255,.97));
+  border-color: rgba(109, 73, 248, .12);
+  color: #172339;
+}
+
+.diagram-node,
+.tab-btn,
+.copy-btn,
+.menu-btn {
+  transition: transform .15s ease, border-color .15s ease, background .15s ease, box-shadow .15s ease;
+}
+
+.diagram-node:hover,
+.tab-btn:hover,
+.copy-btn:hover,
+.menu-btn:hover,
+.toc-link:hover {
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .18);
+}
+
+.tab-btn {
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(31, 19, 58, .96), rgba(15, 10, 29, .95));
+  color: var(--text);
+  min-height: 42px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  font: inherit;
+}
+
+.tab-btn.active {
+  border-color: rgba(34, 211, 238, .30);
+  background: linear-gradient(180deg, rgba(95, 61, 176, .98), rgba(43, 26, 84, .96));
+}
+
+html[data-theme="light"] .tab-btn {
+  background: linear-gradient(180deg, rgba(255,255,255,.96), rgba(247,241,255,.94));
+  border-color: rgba(109, 73, 248, .12);
+  color: #142033;
+}
+
+html[data-theme="light"] .tab-btn.active {
+  background: linear-gradient(180deg, rgba(234,224,255,.98), rgba(223,213,255,.96));
+  border-color: rgba(109, 73, 248, .24);
+  color: #3f24a8;
+}
+
+.diagram-node {
+  border-radius: 20px;
+}
+
+.copy-btn {
+  border-radius: 14px;
+}
+
+.tab-btn.active,
+.diagram-node.active,
+.copy-btn:hover {
+  box-shadow: 0 12px 28px rgba(10, 17, 38, .35);
+}
+
+.kicker {
+  font-weight: 700;
+}
+
+.lesson-checklist li::marker {
+  color: var(--accent-2);
+}
+
+html[data-theme="light"] .lesson-checklist li::marker {
+  color: #255f72;
+}
+
+@media (max-width: 1000px) {
+  .roadmap-grid,
+  .compare-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
